@@ -260,8 +260,8 @@
         '<div class="meta">' +
           '<span class="nick">Sin cuentas guardadas</span>' +
           (guest
-            ? '<span class="sub">Inicia sesiÃ³n y guarda tus multicuentas.</span>'
-            : '<span class="sub">Pulsa â€œGuardar cuentaâ€ para aÃ±adir la cuenta actual.</span>') +
+            ? '<span class="sub">Inicia sesión y guarda tus multicuentas.</span>'
+            : '<span class="sub">Pulsa “Guardar cuenta” para añadir la cuenta actual.</span>') +
         '</div>';
       listEl.appendChild(li0);
       return;
@@ -309,7 +309,7 @@
         // click derecho como extra
         li.oncontextmenu = function(e){
           e.preventDefault();
-          if (confirm("Â¿Eliminar esta cuenta?")){
+          if (confirm("¿Eliminar esta cuenta?")){
             var targetNick = normNick(acc.nick);
             var targetAv = String(acc.avatar || "");
 
@@ -353,7 +353,7 @@
     if (act === "saveCurrent"){
       var cur = getCurrentUser();
       if (!cur){
-        alert("Primero inicia sesiÃ³n para poder guardar la cuenta.");
+        alert("Primero inicia sesión para poder guardar la cuenta.");
         return;
       }
 
@@ -362,7 +362,7 @@
 
       for (var i=0; i<list.length; i++){
         if (normNick(list[i].nick) === curNorm){
-          alert("Esa cuenta ya estÃ¡ guardada.");
+          alert("Esa cuenta ya está guardada.");
           return;
         }
       }
@@ -375,10 +375,10 @@
 
     if (act === "deleteCurrent"){
       if (isGuest()){
-        alert("No hay sesiÃ³n activa que borrar.");
+        alert("No hay sesión activa que borrar.");
         return;
       }
-      if (!confirm("Â¿Borrar la cuenta actual de la lista?")) return;
+      if (!confirm("¿Borrar la cuenta actual de la lista?")) return;
 
       var ok = deleteCurrentFromStorage();
       if (!ok) alert("Esa cuenta no estaba guardada.");
